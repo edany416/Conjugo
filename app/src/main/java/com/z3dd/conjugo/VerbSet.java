@@ -61,23 +61,15 @@ public class VerbSet {
         String[] sArray1 = new String[]{"a", "b", "c", "d", "e", "f", "g", "h"};
         String[] sArray2 = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
         String[] sArray3 = new String[]{"10", "20", "30", "40", "50", "60", "70", "80"};
-        String[] sArray4 = new String[]{"100", "200", "300", "400", "500", "600", "700", "800"};
-        String[] sArray5 = new String[]{"1000", "2000", "3000", "4000", "5000", "6000", "7000", "8000"};
-        String[] sArray6 = new String[]{"10000", "20000", "30000", "40000", "50000", "60000", "70000", "80000"};
 
         Verb v1 = new Verb(sArray1);
         Verb v2 = new Verb(sArray2);
         Verb v3 = new Verb(sArray3);
-        Verb v4 = new Verb(sArray4);
-        Verb v5 = new Verb(sArray5);
-        Verb v6 = new Verb(sArray6);
 
         verbSet.add(v1);
         verbSet.add(v2);
         verbSet.add(v3);
-        verbSet.add(v4);
-        verbSet.add(v5);
-        verbSet.add(v6);
+
     }
 
 

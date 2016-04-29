@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -30,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         //VerbSet vs = VerbSet.getInstance();
         setSupportActionBar(toolbar);
 
-
         if (editTextArray == null) {
             //TODO: same as code in on click check answer
             editTextArray = new EditText[]{(EditText) findViewById(R.id.definition_edit_text), (EditText) findViewById(R.id.yo_edit_text),
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 currentVerb = new Verb(editTextArray);
             }
         }
+
+        View verbNameTextField = findViewById(R.id.current_verb_label);
+        View root = verbNameTextField.getRootView();
+        root.setBackgroundColor(0xFFFFFFFF);
     }
 
     @Override
@@ -63,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCheckAnswer(View view) {
-        Button checkAnswerButton = (Button) findViewById(R.id.check_answer_button);
+        TextView responseButtonText = (TextView) findViewById(R.id.response_button_text);
         //populate editTextArray with user input
-        if (checkAnswerButton.getText().toString() != "Next") {
+        if (responseButtonText.getText().toString() != "CONTINUE") {
             editTextArray = new EditText[]{(EditText) findViewById(R.id.definition_edit_text), (EditText) findViewById(R.id.yo_edit_text),
                     (EditText) findViewById(R.id.tu_edit_text), (EditText) findViewById(R.id.el_edit_text),
                     (EditText) findViewById(R.id.nos_edit_text), (EditText) findViewById(R.id.vos_edit_text),
@@ -73,18 +78,15 @@ public class MainActivity extends AppCompatActivity {
             UserInput userInput = new UserInput(editTextArray);
 
             if (userInput.equalsCurrentVerb(currentVerb)) {
-                checkAnswerButton.setText("Next");
-                checkAnswerButton.setBackgroundColor(Color.GREEN);
+                responseButtonText.setText("CONTINUE");
             }
 
         } else {
             displayNextVerb();
             clearEditTextFields();
 
-            //Reset next button back to check answer
-            Button temp = (Button) findViewById(R.id.check_answer_button);
-            temp.setText("Check Answer");
-            temp.setBackgroundColor(Color.LTGRAY);
+            //Reset next button back to check
+            responseButtonText.setText("CHECK");
         }
     }
 

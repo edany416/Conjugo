@@ -145,7 +145,7 @@
         android:layout_alignBaseline="@+id/ellos_label"
         android:layout_toRightOf="@+id/ellos_label"
         />
-
+<!--
     <Button
         android:id="@+id/check_answer_button"
         android:layout_width="300dp"
@@ -155,4 +155,26 @@
         android:layout_below="@id/el_label"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp" />
+-->
+    <ImageButton
+        android:id="@+id/repspose_button"
+        android:src="@drawable/continue_button"
+        android:layout_width="201dp"
+        android:layout_height="55dp"
+        android:layout_below="@id/el_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:onClick="onClickCheckAnswer"/>
+
+    <TextView
+        android:id="@+id/response_button_text"
+        android:text="CHECK"
+        android:textColor="@color/whiteColor"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/repspose_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
 </RelativeLayout>
