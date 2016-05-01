@@ -151,15 +151,15 @@
         android:layout_alignBaseline="@+id/ellos_text_view"
         android:layout_toRightOf="@+id/ellos_text_view"
         />
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:onClick="onClickDelete"
-        android:layout_centerInParent="true"
+    <ImageButton
+        android:id="@+id/trash_can"
+        android:src="@drawable/trash_can"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_marginBottom="18dp"
         android:layout_alignParentBottom="true"
-        android:text="Delete"
-        android:backgroundTint="#FF0000"
-        android:layout_marginBottom="75dp"
-        />
+        android:onClick="onClickDelete"
+        android:layout_toEndOf="@+id/verb_name_edit_text" />
 
 </RelativeLayout>
