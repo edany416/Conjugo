@@ -44,6 +44,7 @@ public class EditVerbActivity extends AppCompatActivity {
     public void onClickDelete(View view) {
         Intent intent = new Intent(this, VerbListActivity.class);
         VerbSetManager.deleteVerb(new Verb(verbList.toArray(new String[8])));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
 
