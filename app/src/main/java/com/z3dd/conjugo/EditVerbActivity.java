@@ -9,9 +9,6 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO: implement delete button
-//TODO: implement back button
-//Todo: why not passed by reference??
 public class EditVerbActivity extends AppCompatActivity {
     List<String> verbList;
 
@@ -19,7 +16,6 @@ public class EditVerbActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_verb);
-
         verbList = new ArrayList<>(VerbSetManager.getSelectedVerb().verbDetailSet());
         populateEditTextAttribuite(verbList);
     }
@@ -44,7 +40,6 @@ public class EditVerbActivity extends AppCompatActivity {
     public void onClickDelete(View view) {
         Intent intent = new Intent(this, VerbListActivity.class);
         VerbSetManager.deleteVerb(new Verb(verbList.toArray(new String[8])));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
 

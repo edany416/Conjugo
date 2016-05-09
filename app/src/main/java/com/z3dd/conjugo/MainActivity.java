@@ -2,6 +2,7 @@ package com.z3dd.conjugo;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -46,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         View verbNameTextField = findViewById(R.id.current_verb_label);
         View root = verbNameTextField.getRootView();
         root.setBackgroundColor(0xFFFFFFFF);
+
+        ImageButton checkAnswerImageButton = (ImageButton) findViewById(R.id.repspose_button);
+        checkAnswerImageButton.setActivated(true);
     }
 
     @Override
@@ -68,9 +73,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCheckAnswer(View view) {
-        TextView responseButtonText = (TextView) findViewById(R.id.response_button_text);
+        ImageButton checkAnswerImageButton = (ImageButton) view;
+
         //populate editTextArray with user input
-        if (responseButtonText.getText().toString() != "CONTINUE") {
+        if (checkAnswerImageButton.isActivated()) {
             editTextArray = new EditText[]{(EditText) findViewById(R.id.definition_edit_text), (EditText) findViewById(R.id.yo_edit_text),
                     (EditText) findViewById(R.id.tu_edit_text), (EditText) findViewById(R.id.el_edit_text),
                     (EditText) findViewById(R.id.nos_edit_text), (EditText) findViewById(R.id.vos_edit_text),
@@ -78,7 +84,9 @@ public class MainActivity extends AppCompatActivity {
             UserInput userInput = new UserInput(editTextArray);
 
             if (userInput.equalsCurrentVerb(currentVerb)) {
-                responseButtonText.setText("CONTINUE");
+//                responseButtonText.setText("CONTINUE");
+                checkAnswerImageButton.setImageResource(R.drawable.cont);
+                checkAnswerImageButton.setActivated(false);
             }
 
         } else {
@@ -86,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
             clearEditTextFields();
 
             //Reset next button back to check
-            responseButtonText.setText("CHECK");
+            checkAnswerImageButton.setImageResource(R.drawable.check);
+            checkAnswerImageButton.setActivated(true);
         }
     }
 

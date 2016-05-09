@@ -53,6 +53,7 @@ public class VerbListActivity extends AppCompatActivity {
     private void goToEditVerbActivity(int listViewPosition) {
         VerbSetManager.setSelectedVerb(verbList.get(listViewPosition));
         Intent intent = new Intent(this, EditVerbActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
 

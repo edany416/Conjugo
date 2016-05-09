@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label=""
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -18,12 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddVerbActivity" />
+        <activity android:name=".AddVerbActivity"
+            android:label="Add Verb"
+            android:parentActivityName=".VerbListActivity"
+            />
         <activity
             android:name=".VerbListActivity"
-            android:label="@string/title_activity_verb_list"
+            android:label="Verb List"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EditVerbActivity"></activity>
+        <activity android:name=".EditVerbActivity"
+            android:parentActivityName=".VerbListActivity"
+            >
+        </activity>
     </application>
 
 </manifest>
