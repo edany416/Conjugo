@@ -1,5 +1,7 @@
 package com.z3dd.conjugo;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
@@ -87,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
 //                responseButtonText.setText("CONTINUE");
                 checkAnswerImageButton.setImageResource(R.drawable.cont);
                 checkAnswerImageButton.setActivated(false);
+            } else {
+                displayWrongAnswerAlertMessage();
             }
 
         } else {
@@ -141,5 +145,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void displayWrongAnswerAlertMessage() {
+        AlertDialog.Builder incorrectAnswerDialog = new AlertDialog.Builder(this);
+        incorrectAnswerDialog.setMessage("Incorrect answer");
+
+        incorrectAnswerDialog.setPositiveButton(
+                "Try again",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = incorrectAnswerDialog.create();
+        alert.show();
+    }
 
 }
