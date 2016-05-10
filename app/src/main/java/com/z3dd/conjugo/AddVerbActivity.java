@@ -1,5 +1,7 @@
 package com.z3dd.conjugo;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +29,6 @@ public class AddVerbActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
 
         switch (id) {
             case android.R.id.home:
@@ -59,10 +60,43 @@ public class AddVerbActivity extends AppCompatActivity {
         editTextArray[6] = vos;
         editTextArray[7] = ellos;
 
-        verb = new Verb(editTextArray);
-        VerbSetManager.addVerb(verb);
 
-        Intent intent = new Intent(this, VerbListActivity.class);
-        startActivity(intent);
+        if (allVerbDetailsEntered(editTextArray)) {
+            verb = new Verb(editTextArray);
+            VerbSetManager.addVerb(verb);
+
+            Intent intent = new Intent(this, VerbListActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+        } else {
+           displayMissingDetailsAlertMessage();
+        }
+
+    }
+
+    private boolean allVerbDetailsEntered(EditText[] arr){
+        boolean isMissingDetails = false;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].toString() == "") {
+                isMissingDetails = true;
+                break;
+            }
+        }
+        return isMissingDetails;
+    }
+
+    private void displayMissingDetailsAlertMessage() {
+        AlertDialog.Builder missingDetailDialog = new AlertDialog.Builder(this);
+        missingDetailDialog.setMessage("Verb details missing");
+
+        missingDetailDialog.setPositiveButton(
+                "Continue",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = missingDetailDialog.create();
+        alert.show();
     }
 }

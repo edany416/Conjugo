@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.verb_list:
                 Intent intent = new Intent(this, VerbListActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                //intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
                 return true;
             default:
