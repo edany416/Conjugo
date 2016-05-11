@@ -12,6 +12,9 @@
     tools:context="com.z3dd.conjugo.MainActivity"
     tools:showIn="@layout/activity_main">
 
+
+
+
     <TextView
         android:id="@+id/current_verb_label"
         android:layout_width="wrap_content"

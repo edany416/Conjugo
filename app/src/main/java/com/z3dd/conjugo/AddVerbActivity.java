@@ -74,14 +74,14 @@ public class AddVerbActivity extends AppCompatActivity {
     }
 
     private boolean allVerbDetailsEntered(EditText[] arr){
-        boolean isMissingDetails = false;
+        boolean allDetailsEntered = true;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i].toString() == "") {
-                isMissingDetails = true;
+            if (arr[i].getText().toString().equals("")) {
+                allDetailsEntered = false;
                 break;
             }
         }
-        return isMissingDetails;
+        return allDetailsEntered;
     }
 
     private void displayMissingDetailsAlertMessage() {
