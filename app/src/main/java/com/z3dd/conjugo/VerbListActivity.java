@@ -45,7 +45,7 @@ public class VerbListActivity extends AppCompatActivity {
     }
 
     public void onClickAdd(View view) {
-        Intent intent = new Intent(this, AddVerbActivity.class);
+        Intent intent = new Intent(this, AddAVerbActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }

@@ -6,4 +6,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_complete_verb_detail">CompleteVerbDetailActivity</string>
+    <string name="title_activity_compact_verb_detail">CompactVerbDetailActivity</string>
+    <string name="title_activity_full_verb_detail">FullVerbDetailActivity</string>
+    <string name="title_activity_add_averb">AddAVerbActivity</string>
 </resources>

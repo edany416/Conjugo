@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.z3dd.conjugo.R;
+import com.z3dd.conjugo.Verb;
+import com.z3dd.conjugo.VerbListActivity;
+import com.z3dd.conjugo.VerbSetManager;
+
 import java.util.ArrayList;
 import java.util.List;
 

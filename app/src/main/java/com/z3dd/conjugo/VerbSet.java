@@ -60,15 +60,12 @@ public class VerbSet {
     private void prepopulateVerbSet() {
         String[] sArray1 = new String[]{"a", "b", "c", "d", "e", "f", "g", "h"};
         String[] sArray2 = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
-        String[] sArray3 = new String[]{"10", "20", "30", "40", "50", "60", "70", "80"};
 
         Verb v1 = new Verb(sArray1);
         Verb v2 = new Verb(sArray2);
-        Verb v3 = new Verb(sArray3);
 
         verbSet.add(v1);
         verbSet.add(v2);
-        verbSet.add(v3);
 
     }
 

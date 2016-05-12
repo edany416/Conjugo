@@ -8,10 +8,9 @@
         android:label=""
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:name=".ConjugationPracticeActivity"
+            android:label="New Home Page"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,23 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".AddVerbActivity"
-            android:label="Add Verb"
-            android:parentActivityName=".EditVerbActivity"
-            />
-
         <activity
             android:name=".VerbListActivity"
             android:label="Verb List"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".EditVerbActivity"
-            android:parentActivityName=".VerbListActivity" >
-        </activity>
-
+            android:parentActivityName=".VerbListActivity" />
+        <activity
+            android:name=".AddAVerbActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FullVerbDetailActivity"
+            android:label="@string/title_activity_full_verb_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

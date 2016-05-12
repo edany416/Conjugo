@@ -13,21 +13,21 @@ import java.util.Set;
 public class Verb implements Serializable {
     private Set<String> verbDetails;
 
-    Verb(EditText[] array) {
+    public Verb(EditText[] array) {
         verbDetails = new LinkedHashSet<>();
         for (EditText et : array) {
             verbDetails.add(et.getText().toString());
         }
     }
 
-    Verb(String[] s) {
+    public Verb(String[] s) {
         verbDetails = new LinkedHashSet<>();
         for (String str : s) {
             verbDetails.add(str.toString());
         }
     }
 
-    public String getVerbName () {
+    public String verbName() {
         Iterator<String> it = verbDetails.iterator();
         return it.next().toString();
     }
@@ -38,23 +38,22 @@ public class Verb implements Serializable {
 
     @Override
     public String toString() {
-        return getVerbName();
+        return verbName();
     }
 
     @Override
     public boolean equals(Object o) {
         boolean isEqual = false;
         Verb v = (Verb) o;
-        if(this.getVerbName().hashCode() == v.getVerbName().hashCode()) {
+        if(this.verbName().hashCode() == v.verbName().hashCode()) {
             isEqual = true;
         }
-
         return isEqual;
     }
 
     public int hashCode() {
         int hash = 3;
-        hash = 7 * hash + this.getVerbName().hashCode();
+        hash = 7 * hash + this.verbName().hashCode();
         return hash;
     }
 }

@@ -4,11 +4,18 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
+import com.z3dd.conjugo.R;
+import com.z3dd.conjugo.Verb;
+import com.z3dd.conjugo.VerbListActivity;
+import com.z3dd.conjugo.VerbSetManager;
 
 //TODO: implement back button
 public class AddVerbActivity extends AppCompatActivity {
@@ -18,8 +25,6 @@ public class AddVerbActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_verb);
-
         editTextArray = new EditText[8];
     }
 
@@ -38,6 +43,13 @@ public class AddVerbActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     public void onClickDone(View view) {
