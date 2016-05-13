@@ -10,10 +10,11 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class FullVerbDetailActivity extends AppCompatActivity {
+public abstract class FullVerbDetailActivity extends AppCompatActivity {
 
     private TextView verbNameTextView;
     private EditText verbNameEditText;
+    private int verbNameEditTextId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,9 @@ public class FullVerbDetailActivity extends AppCompatActivity {
 
         verbNameTextView = new TextView(this);
         verbNameEditText = new EditText(this);
+        verbNameEditTextId = View.generateViewId();
+        verbNameEditText.setId(verbNameEditTextId);
+
         verbNameTextView.setText("Verb Name");
         verbNameTextView.setLayoutParams(textViewParams);
 
@@ -43,7 +47,12 @@ public class FullVerbDetailActivity extends AppCompatActivity {
 
         relativeLayout.addView(verbNameTextView);
         relativeLayout.addView(verbNameEditText);
-
     }
+
+    public int getVerbNameEditTextId(){
+        return verbNameEditTextId;
+    }
+
+    public abstract void onClickActionButton (View view);
 
 }

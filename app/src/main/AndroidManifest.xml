@@ -24,14 +24,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditVerbActivity"
-            android:parentActivityName=".VerbListActivity" />
+            android:parentActivityName=".VerbListActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".AddAVerbActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".FullVerbDetailActivity"
-            android:label="@string/title_activity_full_verb_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
