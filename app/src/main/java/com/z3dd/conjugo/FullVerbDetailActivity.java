@@ -14,7 +14,7 @@ public abstract class FullVerbDetailActivity extends AppCompatActivity {
 
     private TextView verbNameTextView;
     private EditText verbNameEditText;
-    private int verbNameEditTextId;
+    private static int verbNameEditTextId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public abstract class FullVerbDetailActivity extends AppCompatActivity {
         setContentView(R.layout.basic_verb_detail_display);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.verb_detail_layout);
         RelativeLayout.LayoutParams textViewParams =

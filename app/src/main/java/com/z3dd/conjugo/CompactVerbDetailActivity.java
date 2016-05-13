@@ -12,6 +12,8 @@ import android.widget.TextView;
 public abstract class CompactVerbDetailActivity extends AppCompatActivity {
 
     private TextView verbNameTextView;
+    private static int verbNameTextViewId;
+    private static boolean verbSetWasEmpty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +30,29 @@ public abstract class CompactVerbDetailActivity extends AppCompatActivity {
         textViewParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
 
         verbNameTextView = new TextView(this);
+        verbNameTextViewId = View.generateViewId();
+        verbNameTextView.setId(verbNameTextViewId);
         verbNameTextView.setText("Verb Name");
         verbNameTextView.setLayoutParams(textViewParams);
 
         relativeLayout.addView(verbNameTextView);
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if (VerbSetManager.setHasVerb()) {
+            TextView textView = (TextView) findViewById(verbNameTextViewId);
+            textView.findViewById(verbNameTextViewId).setVisibility(View.VISIBLE);
+        }
+    }
+
     protected void setVerbNameTextView(String text) {
         verbNameTextView.setText(text);
+    }
+    protected void hideVerbNameTextView() {
+        TextView textView = (TextView) findViewById(verbNameTextViewId);
+        textView.findViewById(verbNameTextViewId).setVisibility(View.GONE);
     }
     public abstract void onClickActionButton (View view);
 

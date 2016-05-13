@@ -15,6 +15,9 @@ public class VerbSetManager {
     public static void deleteVerb(Verb verb) {
         VerbSet.getInstance().delete(verb);
     }
+    public static boolean setHasVerb(){
+        return !VerbSet.getInstance().isEmpty();
+    }
     public static void setSelectedVerb(Verb verb) {
         VerbSet.getInstance().setSelectedVerb(verb);
     }

@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.EditText;
 
 public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +34,8 @@ public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
         switch (item.getItemId()) {
             case R.id.verb_list:
                 Intent intent = new Intent(this, VerbListActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
-                return true;
-            case R.id.action_settings:
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -56,7 +54,12 @@ public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
 
 
     public void displayNextVerb() {
-        setVerbNameTextView(GameManager.nextVerb());
+
+        if (VerbSetManager.setHasVerb()) {
+            setVerbNameTextView(GameManager.nextVerb());
+        } else {
+            hideVerbNameTextView();
+        }
     }
 
     private Verb userInput() {

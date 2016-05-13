@@ -37,6 +37,10 @@ public class VerbSet {
         verbSet.remove(v);
     }
 
+    public boolean isEmpty(){
+        return verbSet.isEmpty();
+    }
+
     public void setSelectedVerb (Verb v) {
         selectedVerb = v;
     }
@@ -53,10 +57,6 @@ public class VerbSet {
         return verbArray[index];
     }
 
-    public boolean isEmpty() {
-        return verbSet.isEmpty();
-    }
-
     private void prepopulateVerbSet() {
         String[] sArray1 = new String[]{"a", "b", "c", "d", "e", "f", "g", "h"};
         String[] sArray2 = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
@@ -68,7 +68,4 @@ public class VerbSet {
         verbSet.add(v2);
 
     }
-
-
-
 }

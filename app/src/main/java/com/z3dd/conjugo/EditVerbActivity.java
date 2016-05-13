@@ -1,8 +1,16 @@
 package com.z3dd.conjugo;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -14,15 +22,96 @@ import com.z3dd.conjugo.VerbSetManager;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.z3dd.conjugo.R.id.toolbar;
+import static com.z3dd.conjugo.R.id.verb_detail_layout;
+
 public class EditVerbActivity extends FullVerbDetailActivity {
     List<String> verbList;
+    static EditText[] editTextArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_edit_verb);
         verbList = new ArrayList<>(VerbSetManager.getSelectedVerb().verbDetailSet());
         populateEditTextAttribuite(verbList);
+    }
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE, 1, 0, "Save").setIcon(R.drawable.ic_done_white_48dp).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        return true;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (allVerbDetailsEntered(editTextArray)) {
+            Intent intent = new Intent(this, VerbListActivity.class);
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            updateVerb();
+            startActivity(intent);
+
+        } else {
+            displayMissingDetailsAlertMessage();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickActionButton(View view) {
+        Intent intent = new Intent(this, VerbListActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        VerbSetManager.deleteVerb(new Verb(verbList.toArray(new String[8])));
+
+        startActivity(intent);
+    }
+
+    private void updateVerb() {
+
+        editTextArray = new EditText[]{(EditText) findViewById(getVerbNameEditTextId()),
+                (EditText) findViewById(R.id.definition_edit_text),
+                (EditText) findViewById(R.id.yo_edit_text),
+                (EditText) findViewById(R.id.tu_edit_text),
+                (EditText) findViewById(R.id.el_edit_text),
+                (EditText) findViewById(R.id.nos_edit_text),
+                (EditText) findViewById(R.id.vos_edit_text),
+                (EditText) findViewById(R.id.ellos_edit_text)};
+        Verb updatedVeb = new Verb(editTextArray);
+        VerbSetManager.deleteVerb(VerbSetManager.getSelectedVerb());
+        VerbSetManager.addVerb(updatedVeb);
+    }
+
+    private boolean allVerbDetailsEntered(EditText[] arr){
+        boolean allDetailsEntered = true;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getText().toString().equals("")) {
+                allDetailsEntered = false;
+                break;
+            }
+        }
+        return allDetailsEntered;
+    }
+
+    private void displayMissingDetailsAlertMessage() {
+        AlertDialog.Builder missingDetailDialog = new AlertDialog.Builder(this);
+        missingDetailDialog.setMessage("Verb details missing");
+
+        missingDetailDialog.setPositiveButton(
+                "Continue",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = missingDetailDialog.create();
+        alert.show();
     }
 
     private void populateEditTextAttribuite(List<String> verbDetails) {
@@ -40,14 +129,6 @@ public class EditVerbActivity extends FullVerbDetailActivity {
         for (int i = 0; i < verbDetails.size(); i++) {
             editTextArray[i].setText(verbDetails.get(i));
         }
-    }
-
-    public void onClickActionButton(View view) {
-        Intent intent = new Intent(this, VerbListActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        VerbSetManager.deleteVerb(new Verb(verbList.toArray(new String[8])));
-
-        startActivity(intent);
     }
 
 }
