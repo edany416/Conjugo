@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -49,6 +50,10 @@ public abstract class CompactVerbDetailActivity extends AppCompatActivity {
 
     protected void setVerbNameTextView(String text) {
         verbNameTextView.setText(text);
+    }
+    protected void setActionButtonText(String text) {
+        Button actionButton = (Button) findViewById(R.id.action_button);
+        actionButton.setText(text);
     }
     protected void hideVerbNameTextView() {
         TextView textView = (TextView) findViewById(verbNameTextViewId);

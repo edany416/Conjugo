@@ -33,18 +33,10 @@ public class EditVerbActivity extends FullVerbDetailActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         verbList = new ArrayList<>(VerbSetManager.getSelectedVerb().verbDetailSet());
+        setActionButtonText("DELETE");
         populateEditTextAttribuite(verbList);
     }
 
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, 1, 0, "Save").setIcon(R.drawable.ic_done_white_48dp).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-
-        return true;
-    }
     @Override
     public void onStart() {
         super.onStart();
@@ -52,16 +44,17 @@ public class EditVerbActivity extends FullVerbDetailActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (allVerbDetailsEntered(editTextArray)) {
+       // if (allVerbDetailsEntered(editTextArray)) {
+
             Intent intent = new Intent(this, VerbListActivity.class);
 
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             updateVerb();
             startActivity(intent);
 
-        } else {
-            displayMissingDetailsAlertMessage();
-        }
+//        } else {
+//            displayMissingDetailsAlertMessage();
+//        }
         return super.onOptionsItemSelected(item);
     }
 

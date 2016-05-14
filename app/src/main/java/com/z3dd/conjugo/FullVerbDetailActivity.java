@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -52,6 +53,10 @@ public abstract class FullVerbDetailActivity extends AppCompatActivity {
 
     public int getVerbNameEditTextId(){
         return verbNameEditTextId;
+    }
+    protected void setActionButtonText(String text) {
+        Button actionButton = (Button) findViewById(R.id.action_button);
+        actionButton.setText(text);
     }
 
     public abstract void onClickActionButton (View view);

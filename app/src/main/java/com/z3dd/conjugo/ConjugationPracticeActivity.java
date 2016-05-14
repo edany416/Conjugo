@@ -14,6 +14,7 @@ public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setActionButtonText("CHECK");
     }
 
     @Override

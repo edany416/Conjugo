@@ -15,6 +15,7 @@ public class AddAVerbActivity extends FullVerbDetailActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setActionButtonText("SAVE");
     }
 
     @Override
