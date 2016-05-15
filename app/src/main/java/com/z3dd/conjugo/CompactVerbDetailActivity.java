@@ -1,21 +1,27 @@
 package com.z3dd.conjugo;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+
 public abstract class CompactVerbDetailActivity extends AppCompatActivity {
 
     private TextView verbNameTextView;
     private static int verbNameTextViewId;
-    private static boolean verbSetWasEmpty;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,26 +46,29 @@ public abstract class CompactVerbDetailActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
+
         if (VerbSetManager.setHasVerb()) {
             TextView textView = (TextView) findViewById(verbNameTextViewId);
             textView.findViewById(verbNameTextViewId).setVisibility(View.VISIBLE);
         }
+
     }
 
     protected void setVerbNameTextView(String text) {
         verbNameTextView.setText(text);
     }
+
     protected void setActionButtonText(String text) {
         Button actionButton = (Button) findViewById(R.id.action_button);
         actionButton.setText(text);
     }
+
     protected void hideVerbNameTextView() {
         TextView textView = (TextView) findViewById(verbNameTextViewId);
         textView.findViewById(verbNameTextViewId).setVisibility(View.GONE);
     }
-    public abstract void onClickActionButton (View view);
 
-
+    public abstract void onClickActionButton(View view);
 }

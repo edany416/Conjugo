@@ -34,6 +34,7 @@ public class EditVerbActivity extends FullVerbDetailActivity {
         super.onCreate(savedInstanceState);
         verbList = new ArrayList<>(VerbSetManager.getSelectedVerb().verbDetailSet());
         setActionButtonText("DELETE");
+        setUpButton(true, "Cancel");
         populateEditTextAttribuite(verbList);
     }
 
@@ -44,18 +45,14 @@ public class EditVerbActivity extends FullVerbDetailActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       // if (allVerbDetailsEntered(editTextArray)) {
-
+        if (updateVerb()) {
             Intent intent = new Intent(this, VerbListActivity.class);
-
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-            updateVerb();
-            startActivity(intent);
-
-//        } else {
-//            displayMissingDetailsAlertMessage();
-//        }
-        return super.onOptionsItemSelected(item);
+            return super.onOptionsItemSelected(item);
+        } else {
+            displayMissingDetailsAlertMessage();
+        }
+        return true;
     }
 
     public void onClickActionButton(View view) {
@@ -66,8 +63,8 @@ public class EditVerbActivity extends FullVerbDetailActivity {
         startActivity(intent);
     }
 
-    private void updateVerb() {
-
+    private boolean updateVerb() {
+        boolean successFullUpdate = false;
         editTextArray = new EditText[]{(EditText) findViewById(getVerbNameEditTextId()),
                 (EditText) findViewById(R.id.definition_edit_text),
                 (EditText) findViewById(R.id.yo_edit_text),
@@ -76,12 +73,16 @@ public class EditVerbActivity extends FullVerbDetailActivity {
                 (EditText) findViewById(R.id.nos_edit_text),
                 (EditText) findViewById(R.id.vos_edit_text),
                 (EditText) findViewById(R.id.ellos_edit_text)};
-        Verb updatedVeb = new Verb(editTextArray);
-        VerbSetManager.deleteVerb(VerbSetManager.getSelectedVerb());
-        VerbSetManager.addVerb(updatedVeb);
+        if (allVerbDetailsEntered(editTextArray)) {
+            Verb updatedVeb = new Verb(editTextArray);
+            VerbSetManager.deleteVerb(VerbSetManager.getSelectedVerb());
+            VerbSetManager.addVerb(updatedVeb);
+            successFullUpdate = true;
+        }
+        return successFullUpdate;
     }
 
-    private boolean allVerbDetailsEntered(EditText[] arr){
+    private boolean allVerbDetailsEntered(EditText[] arr) {
         boolean allDetailsEntered = true;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i].getText().toString().equals("")) {

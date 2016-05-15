@@ -23,7 +23,6 @@ public abstract class FullVerbDetailActivity extends AppCompatActivity {
         setContentView(R.layout.basic_verb_detail_display);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.verb_detail_layout);
         RelativeLayout.LayoutParams textViewParams =
@@ -57,6 +56,13 @@ public abstract class FullVerbDetailActivity extends AppCompatActivity {
     protected void setActionButtonText(String text) {
         Button actionButton = (Button) findViewById(R.id.action_button);
         actionButton.setText(text);
+    }
+
+    protected void setUpButton(Boolean showUpButton, String upButtonText) {
+        if (showUpButton) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(showUpButton);
+            getSupportActionBar().setTitle(upButtonText);
+        }
     }
 
     public abstract void onClickActionButton (View view);

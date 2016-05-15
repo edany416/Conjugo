@@ -35,7 +35,7 @@ public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
         switch (item.getItemId()) {
             case R.id.verb_list:
                 Intent intent = new Intent(this, VerbListActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                clearEditTextFields();
                 startActivity(intent);
                 return true;
             default:
