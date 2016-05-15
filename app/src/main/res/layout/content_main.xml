@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/verb_detail_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+    <!-- ************TEXTVIEW***************** -->
     <TextView
         android:id="@+id/definition_text_view"
         android:layout_width="wrap_content"
@@ -86,16 +86,7 @@
         android:paddingRight="10dp"
         />
 
-    <!--
-    <EditText
-        android:id="@+id/verb_name_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@id/current_verb_text_view"
-        android:layout_alignStart="@id/nos_text_view"
-        android:layout_toRightOf="@id/current_verb_text_view"
-        />
-        -->
+    <!-- ************EDITTEXT***************** -->
     <EditText
         android:id="@+id/definition_edit_text"
         android:layout_width="100dp"
@@ -103,6 +94,7 @@
         android:layout_alignBaseline="@id/definition_text_view"
         android:layout_alignStart="@id/nos_text_view"
         android:layout_toRightOf="@id/definition_text_view"
+        android:gravity="center"
         />
     <EditText
         android:id="@+id/yo_edit_text"
@@ -110,6 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/yo_text_view"
         android:layout_toRightOf="@+id/yo_text_view"
+        android:gravity="center"
         />
     <EditText
         android:id="@+id/tu_edit_text"
@@ -117,6 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tu_text_view"
         android:layout_toRightOf="@+id/tu_text_view"
+        android:gravity="center"
         />
     <EditText
         android:id="@+id/el_edit_text"
@@ -124,6 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/el_text_view"
         android:layout_toRightOf="@+id/el_text_view"
+        android:gravity="center"
         />
     <EditText
         android:id="@+id/nos_edit_text"
@@ -131,6 +126,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/nos_text_view"
         android:layout_toRightOf="@+id/nos_text_view"
+        android:gravity="center"
         />
     <EditText
         android:id="@+id/vos_edit_text"
@@ -138,6 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/vos_text_view"
         android:layout_toRightOf="@+id/vos_text_view"
+        android:gravity="center"
         />
 
     <EditText
@@ -146,7 +143,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/ellos_text_view"
         android:layout_toRightOf="@+id/ellos_text_view"
+        android:gravity="center"
         />
+
+    <!-- ************BUTTON***************** -->
     <Button
         android:id="@+id/action_button"
         android:layout_width="200dp"
@@ -158,151 +158,5 @@
         android:layout_marginBottom="60dp"
         />
 
-<!--
-    <TextView
-        android:id="@+id/current_verb_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        />
-    <TextView
-        android:id="@+id/definition_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/current_verb_label"
-        android:paddingLeft="100dp"
-        android:paddingTop="20dp"
-        android:text="Definition"
-        />
-    <TextView
-        android:id="@+id/yo_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/definition_label"
-        android:text="Yo"
-        android:paddingTop="50dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
-    <TextView
-        android:id="@+id/tu_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/yo_label"
-        android:text="Tu"
-        android:paddingTop="75dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
-    <TextView
-        android:id="@+id/el_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@id/tu_label"
-        android:text="El"
-        android:paddingTop="75dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
-    <TextView
-        android:id="@+id/nos_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/definition_label"
-        android:text="Nos"
-        android:paddingTop="50dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
-    <TextView
-        android:id="@+id/vos_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/nos_label"
-        android:text="Vos"
-        android:paddingTop="75dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
-    <TextView
-        android:id="@+id/ellos_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/vos_label"
-        android:text="Ellos"
-        android:paddingTop="75dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
-    <EditText
-        android:id="@+id/definition_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/current_verb_label"
-        android:layout_alignLeft="@+id/current_verb_label"
-        android:layout_alignStart="@+id/current_verb_label"
-        />
-    <EditText
-        android:id="@+id/yo_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/yo_label"
-        android:layout_toRightOf="@+id/yo_label"
-        />
-    <EditText
-        android:id="@+id/tu_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/tu_label"
-        android:layout_toRightOf="@+id/tu_label"
-        />
-    <EditText
-        android:id="@+id/el_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/el_label"
-        android:layout_toRightOf="@+id/el_label"
-        />
-    <EditText
-        android:id="@+id/nos_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/nos_label"
-        android:layout_toRightOf="@+id/nos_label"
-        />
-    <EditText
-        android:id="@+id/vos_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/vos_label"
-        android:layout_toRightOf="@+id/vos_label"
-        />
-    <EditText
-        android:id="@+id/ellos_edit_text"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ellos_label"
-        android:layout_toRightOf="@+id/ellos_label"
-        />
 
-    <ImageButton
-        android:id="@+id/repspose_button"
-        android:src="@drawable/check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:background="@null"
-        android:layout_below="@id/el_label"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:onClick="onClickCheckAnswer"/>
--->
 </RelativeLayout>

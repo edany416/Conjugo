@@ -22,6 +22,7 @@ public class AddAVerbActivity extends FullVerbDetailActivity {
         setActionButtonText("SAVE");
     }
 
+    //Action button adds verb
     @Override
     public void onClickActionButton(View view) {
         collectVerbInfo();

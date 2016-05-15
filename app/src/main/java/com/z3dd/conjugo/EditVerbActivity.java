@@ -34,13 +34,13 @@ public class EditVerbActivity extends FullVerbDetailActivity {
         super.onCreate(savedInstanceState);
         verbList = new ArrayList<>(VerbSetManager.getSelectedVerb().verbDetailSet());
         setActionButtonText("DELETE");
-        setUpButton(true, "Cancel");
-        populateEditTextAttribuite(verbList);
+        setUpButton(true, "Save");
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        populateEditTextAttribuite(verbList);
     }
 
     @Override
@@ -55,6 +55,7 @@ public class EditVerbActivity extends FullVerbDetailActivity {
         return true;
     }
 
+    //Action button deletes selected verb
     public void onClickActionButton(View view) {
         Intent intent = new Intent(this, VerbListActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
