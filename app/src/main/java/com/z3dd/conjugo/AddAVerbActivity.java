@@ -27,7 +27,7 @@ public class AddAVerbActivity extends FullVerbDetailActivity {
     public void onClickActionButton(View view) {
         collectVerbInfo();
         if (allVerbDetailsEntered(editTextArray) ) {
-               if (VerbSetManager.addVerb(newVerb)) {
+               if (VerbSet.add(newVerb)) {
                    Intent intent = new Intent(this, VerbListActivity.class);
                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                    startActivity(intent);

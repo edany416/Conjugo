@@ -13,7 +13,7 @@ import java.util.Set;
  */
 public class VerbSet {
 
-    private Set<Verb> verbSet;
+    private static Set<Verb> verbSet;
     private static Verb selectedVerb;
     private static VerbSet vs = new VerbSet();
 
@@ -28,36 +28,40 @@ public class VerbSet {
         return vs;
     }
 
-    public Set<Verb> verbSet() {
-        return verbSet;
+    public static Set<Verb> getVerbSet() {
+        return getInstance().verbSet;
     }
 
-    public boolean add(Verb v) {
-        return verbSet.add(v);
+    public static boolean add(Verb v) {
+        return getInstance().verbSet.add(v);
     }
 
-    public void delete(Verb v) {
-        verbSet.remove(v);
+    public static void delete(Verb v) {
+        getInstance().verbSet.remove(v);
     }
 
-    public boolean isEmpty() {
-        return verbSet.isEmpty();
+    public static boolean isEmpty() {
+        return getInstance().verbSet.isEmpty();
     }
 
-    public void setSelectedVerb(Verb v) {
-        selectedVerb = v;
+    public static void setSelectedVerb(Verb v) {
+        getInstance().selectedVerb = v;
     }
 
-    public Verb selectedVerb() {
+    public static Verb getSelectedVerb() {
         return selectedVerb;
     }
 
-    public Verb randomVerb() {
+    public static Verb getRandomVerb() {
         Verb[] verbArray = verbSet.toArray(new Verb[verbSet.size()]);
         Random randomIndex = new Random();
         int index = randomIndex.nextInt(verbArray.length);
 
         return verbArray[index];
+    }
+
+    public static boolean setHasVerb(){
+        return !VerbSet.getInstance().isEmpty();
     }
 
     private void prepopulateVerbSet() {

@@ -1,29 +1,14 @@
 package com.z3dd.conjugo;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
-import com.z3dd.conjugo.R;
-import com.z3dd.conjugo.Verb;
-import com.z3dd.conjugo.VerbListActivity;
-import com.z3dd.conjugo.VerbSetManager;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.z3dd.conjugo.R.id.toolbar;
-import static com.z3dd.conjugo.R.id.verb_detail_layout;
 
 public class EditVerbActivity extends FullVerbDetailActivity {
     List<String> verbList;
@@ -32,7 +17,7 @@ public class EditVerbActivity extends FullVerbDetailActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        verbList = new ArrayList<>(VerbSetManager.getSelectedVerb().verbDetailSet());
+        verbList = new ArrayList<>(VerbSet.getSelectedVerb().verbDetailSet());
         setActionButtonText("DELETE");
         setUpButton(true, "Save");
     }
@@ -59,7 +44,7 @@ public class EditVerbActivity extends FullVerbDetailActivity {
     public void onClickActionButton(View view) {
         Intent intent = new Intent(this, VerbListActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        VerbSetManager.deleteVerb(new Verb(verbList.toArray(new String[8])));
+        VerbSet.delete(new Verb(verbList.toArray(new String[8])));
 
         startActivity(intent);
     }
@@ -76,8 +61,8 @@ public class EditVerbActivity extends FullVerbDetailActivity {
                 (EditText) findViewById(R.id.ellos_edit_text)};
         if (allVerbDetailsEntered(editTextArray)) {
             Verb updatedVeb = new Verb(editTextArray);
-            VerbSetManager.deleteVerb(VerbSetManager.getSelectedVerb());
-            VerbSetManager.addVerb(updatedVeb);
+            VerbSet.delete(VerbSet.getSelectedVerb());
+            VerbSet.add(updatedVeb);
             successFullUpdate = true;
         }
         return successFullUpdate;

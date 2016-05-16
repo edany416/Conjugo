@@ -30,7 +30,7 @@ public class VerbListActivity extends AppCompatActivity {
     protected void onStart(){
         super.onStart();
         //TODO find more efficient way to update the list
-        verbList = new ArrayList<>(VerbSetManager.getVerbSet());
+        verbList = new ArrayList<>(VerbSet.getVerbSet());
 
         setContentView(R.layout.activity_verb_list);
         ArrayAdapter<Verb> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, verbList);
@@ -51,7 +51,7 @@ public class VerbListActivity extends AppCompatActivity {
     }
 
     private void goToEditVerbActivity(int listViewPosition) {
-        VerbSetManager.setSelectedVerb(verbList.get(listViewPosition));
+        VerbSet.setSelectedVerb(verbList.get(listViewPosition));
         Intent intent = new Intent(this, EditVerbActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);

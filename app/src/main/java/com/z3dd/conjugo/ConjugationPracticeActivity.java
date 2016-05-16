@@ -15,6 +15,8 @@ public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setActionButtonText("CHECK");
+
+
     }
 
     @Override
@@ -56,7 +58,7 @@ public class ConjugationPracticeActivity extends CompactVerbDetailActivity {
 
     public void displayNextVerb() {
 
-        if (VerbSetManager.setHasVerb()) {
+        if (VerbSet.setHasVerb()) {
             setVerbNameTextView(GameManager.nextVerb());
         } else {
             hideVerbNameTextView();

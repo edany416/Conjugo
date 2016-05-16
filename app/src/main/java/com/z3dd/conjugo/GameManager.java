@@ -12,7 +12,7 @@ public class GameManager {
     private static Verb currentVerb;
 
     public static String nextVerb() {
-        currentVerb = VerbSetManager.getRandomVerb();
+        currentVerb = VerbSet.getRandomVerb();
         return currentVerb.verbName();
     }
 

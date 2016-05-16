@@ -22,6 +22,7 @@ public abstract class CompactVerbDetailActivity extends AppCompatActivity {
 
     private TextView verbNameTextView;
     private static int verbNameTextViewId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,7 @@ public abstract class CompactVerbDetailActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (VerbSetManager.setHasVerb()) {
+        if (VerbSet.setHasVerb()) {
             TextView textView = (TextView) findViewById(verbNameTextViewId);
             textView.findViewById(verbNameTextViewId).setVisibility(View.VISIBLE);
         }
