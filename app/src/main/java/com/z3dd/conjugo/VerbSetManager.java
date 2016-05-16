@@ -9,8 +9,8 @@ public class VerbSetManager {
     public static Set<Verb> getVerbSet() {
         return VerbSet.getInstance().verbSet();
     }
-    public static void addVerb(Verb verb) {
-        VerbSet.getInstance().add(verb);
+    public static boolean addVerb(Verb verb) {
+       return VerbSet.getInstance().add(verb);
     }
     public static void deleteVerb(Verb verb) {
         VerbSet.getInstance().delete(verb);

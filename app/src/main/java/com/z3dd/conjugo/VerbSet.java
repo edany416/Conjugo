@@ -1,6 +1,8 @@
 package com.z3dd.conjugo;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Random;
@@ -12,15 +14,16 @@ import java.util.Set;
 public class VerbSet {
 
     private Set<Verb> verbSet;
-    private Verb selectedVerb;
+    private static Verb selectedVerb;
     private static VerbSet vs = new VerbSet();
 
     private VerbSet() {
-        if (verbSet ==  null) {
+        if (verbSet == null) {
             verbSet = new LinkedHashSet<>();
         }
         prepopulateVerbSet();
     }
+
     public static VerbSet getInstance() {
         return vs;
     }
@@ -29,19 +32,19 @@ public class VerbSet {
         return verbSet;
     }
 
-    public void add(Verb v) {
-        verbSet.add(v);
+    public boolean add(Verb v) {
+        return verbSet.add(v);
     }
 
     public void delete(Verb v) {
         verbSet.remove(v);
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return verbSet.isEmpty();
     }
 
-    public void setSelectedVerb (Verb v) {
+    public void setSelectedVerb(Verb v) {
         selectedVerb = v;
     }
 
@@ -68,4 +71,5 @@ public class VerbSet {
         verbSet.add(v2);
 
     }
+
 }
