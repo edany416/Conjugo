@@ -30,7 +30,6 @@ public abstract class CompactVerbDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.verb_detail_layout);
         RelativeLayout.LayoutParams textViewParams =
                 new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,

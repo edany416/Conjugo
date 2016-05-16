@@ -24,7 +24,7 @@ public class VerbSet {
         prepopulateVerbSet();
     }
 
-    public static VerbSet getInstance() {
+    private static VerbSet getInstance() {
         return vs;
     }
 
@@ -65,7 +65,7 @@ public class VerbSet {
     }
 
     private void prepopulateVerbSet() {
-        String[] sArray1 = new String[]{"a", "b", "c", "d", "e", "f", "g", "h"};
+        String[] sArray1 = new String[]{"hablar", "to talk", "hablo", "hablas", "habla", "hablamos", "habláis", "hablan"};
         String[] sArray2 = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
 
         Verb v1 = new Verb(sArray1);
