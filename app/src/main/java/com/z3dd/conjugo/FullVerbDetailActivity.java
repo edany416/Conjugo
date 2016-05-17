@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -39,10 +40,13 @@ public abstract class FullVerbDetailActivity extends AppCompatActivity {
 
         verbNameEditTextId = View.generateViewId();
         verbNameEditText.setId(verbNameEditTextId);
+
         verbNameTextViewId = View.generateViewId();
 
         verbNameTextView.setText("Verb Name");
         verbNameTextView.setLayoutParams(textViewParams);
+
+        verbNameEditText.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 
         RelativeLayout.LayoutParams editTextViewParams =
                 new RelativeLayout.LayoutParams(setWidthInDip(this, 100),

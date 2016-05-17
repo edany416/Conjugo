@@ -65,7 +65,7 @@ public class VerbSet {
     }
 
     private void prepopulateVerbSet() {
-        String[] sArray1 = new String[]{"hablar", "to talk", "hablo", "hablas", "habla", "hablamos", "habláis", "hablan"};
+        String[] sArray1 = new String[]{"hablar", "to speak", "hablo", "hablas", "habla", "hablamos", "habláis", "hablan"};
         String[] sArray2 = new String[]{"1", "2", "3", "4", "5", "6", "7", "8"};
 
         Verb v1 = new Verb(sArray1);

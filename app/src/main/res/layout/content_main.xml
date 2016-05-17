@@ -95,6 +95,7 @@
         android:layout_alignStart="@id/nos_text_view"
         android:layout_toRightOf="@id/definition_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
     <EditText
         android:id="@+id/yo_edit_text"
@@ -103,6 +104,7 @@
         android:layout_alignBaseline="@+id/yo_text_view"
         android:layout_toRightOf="@+id/yo_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
     <EditText
         android:id="@+id/tu_edit_text"
@@ -111,6 +113,7 @@
         android:layout_alignBaseline="@+id/tu_text_view"
         android:layout_toRightOf="@+id/tu_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
     <EditText
         android:id="@+id/el_edit_text"
@@ -119,6 +122,7 @@
         android:layout_alignBaseline="@+id/el_text_view"
         android:layout_toRightOf="@+id/el_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
     <EditText
         android:id="@+id/nos_edit_text"
@@ -127,6 +131,7 @@
         android:layout_alignBaseline="@+id/nos_text_view"
         android:layout_toRightOf="@+id/nos_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
     <EditText
         android:id="@+id/vos_edit_text"
@@ -135,6 +140,7 @@
         android:layout_alignBaseline="@+id/vos_text_view"
         android:layout_toRightOf="@+id/vos_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
 
     <EditText
@@ -144,6 +150,7 @@
         android:layout_alignBaseline="@+id/ellos_text_view"
         android:layout_toRightOf="@+id/ellos_text_view"
         android:gravity="center"
+        android:inputType="textNoSuggestions"
         />
 
     <!-- ************BUTTON***************** -->
